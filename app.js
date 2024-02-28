@@ -26,7 +26,7 @@ app.set("views", "./views");
 app.set("view engine", "ejs");
 
 app.get('', (req, res) => {
-    res.render("index", { text: "this is Henok" });
+    res.render("index", { text: "Here at John & John, we love our customers!" });
 });
 
 app.use("/shoppers", shoppersRoutes);
