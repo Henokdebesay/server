@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const shoppers = [
+let shoppers = [
     {
         name: "Senait",
         county: "Mxico",
@@ -46,12 +46,31 @@ router.get('/:id', (req, res) => {
 
 router.delete('/:id', (req,res) => {
     const { id } = req.params;
+    const numericId = parseInt(id);
+
+     shoppers = shoppers.filter(shopper => shopper.id !== numericId)
  
-     shoppers = shoppers.filter((shopper)=> {
-         shopper.id !== id
-    })
+     res.send(`shopper with ${numericId} ID is deleted`)
+ })
+
+ router.put('/:id', (req,res) => {
+    const { id } = req.params;
+    const { name, country, age } = req.body
+    const numericId = parseInt(id);
+
+    const shopper = shoppers.find(shopper => shopper.id === numericId);
  
-     res.send(`shopper with ${id} is deleted`)
+     if (name) {
+        shopper.name = name;
+     }
+     if (country) {
+        shopper.country = country;
+     }
+     if (age) {
+        shopper.age = age;
+     }
+
+     res.send(`Shopper ${numericId} has updated`)
  })
 
 

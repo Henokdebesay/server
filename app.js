@@ -7,6 +7,10 @@ const shoppersRoutes = require('./routes/shoppers.js')
 
 app.use(bodyParser.json())
 app.use("/shoppers", shoppersRoutes)
+app.use("/posts", postsRoutes)
+app.use("/comments", commentsRoutes)
+
+
 
 app.listen(PORT, ()=>{
     console.log(`Server running on port: ${PORT}`)
