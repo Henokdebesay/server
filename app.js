@@ -3,12 +3,15 @@ const app = express();
 const PORT = 3000;
 const bodyParser = require("body-parser");
 const shoppersRoutes = require('./routes/shoppers.js')
+const cartsRoutes = require('./routes/carts.js')
+const reviewsRoutes = require('./routes/reviews.js')
+
 
 
 app.use(bodyParser.json())
 app.use("/shoppers", shoppersRoutes)
-app.use("/posts", postsRoutes)
-app.use("/comments", commentsRoutes)
+app.use("/carts", cartsRoutes)
+app.use("/reviews", reviewsRoutes)
 
 
 
