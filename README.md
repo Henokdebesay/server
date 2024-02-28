@@ -1,4 +1,4 @@
-# Project Name
+# Express Server App
 
 This is a basic template for an Express.js server with routes and middleware.
 
@@ -6,9 +6,6 @@ This is a basic template for an Express.js server with routes and middleware.
 
 This template provides a starting point for building an Express.js server. It includes basic configurations for handling requests, serving static files, setting up routes, and logging requests.
 
-## Description
-
-Provide a brief overview of what your project does and its purpose.
 
 ## Installation
 
