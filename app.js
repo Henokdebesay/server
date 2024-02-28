@@ -8,7 +8,7 @@ const reviewsRoutes = require('./routes/reviews.js')
 
 const requestLogger = (req, res, next) => {
     console.log(`[${new Date().toLocaleString()}] ${req.method} ${req.url}`);
-    next(); // Call next middleware in the stack
+    next(); // 
 };
 
 app.use(bodyParser.json())
@@ -19,6 +19,7 @@ app.use("/shoppers", shoppersRoutes)
 app.use("/carts", cartsRoutes)
 app.use("/reviews", reviewsRoutes)
 
+app.set("view engine", "ejs");
 
 
 app.listen(PORT, ()=>{
