@@ -5,33 +5,30 @@ const router = express.Router();
 let carts = [
     {
         name: "Senait",
-        county: "Mxico",
-        age: 32,
+        item: "Milk",
         id: 1
     }, 
     {
         name: "John",
-        county: "Mali",
-        age: 23,
+        item: "Chocolate",
         id: 2
     },
     {
         name: "David",
-        county: "Germany",
-        age: 24,
+        item: "Eggs",
         id: 3
     }
 ]
 router.get('/', (req,res) => {
-    res.send(shoppers)
+    res.send(carts)
 
 })
 
 
 router.post('/', (req,res) => {
-    const shopper = req.body;
-    shoppers.push(shopper);
-    res.send(`${shopper.name}`)
+    const cart = req.body;
+    carts.push(cart);
+    res.send(`${cart.name}`)
 })
 
 router.get('/:id', (req, res) => {
@@ -39,35 +36,32 @@ router.get('/:id', (req, res) => {
     const numericId = parseInt(id); // Convert id to a number
 
     // Use triple equals (===) for comparison
-    const mainShopper = shoppers.find(shopper => shopper.id === numericId);
+    const mainCart = carts.find(cart => cart.id === numericId);
 
-    res.send(mainShopper)
+    res.send(mainCart)
 });
 
 router.delete('/:id', (req,res) => {
     const { id } = req.params;
     const numericId = parseInt(id);
 
-     shoppers = shoppers.filter(shopper => shopper.id !== numericId)
+     carts = carts.filter(cart => cart.id !== numericId)
  
      res.send(`shopper with ${numericId} ID is deleted`)
  })
 
  router.put('/:id', (req,res) => {
     const { id } = req.params;
-    const { name, country, age } = req.body
+    const { name, item } = req.body
     const numericId = parseInt(id);
 
-    const shopper = shoppers.find(shopper => shopper.id === numericId);
+    const cart = carts.find(cart => cart.id === numericId);
  
      if (name) {
-        shopper.name = name;
+        cart.name = name;
      }
-     if (country) {
-        shopper.country = country;
-     }
-     if (age) {
-        shopper.age = age;
+     if (cart) {
+        cart.item = item;
      }
 
      res.send(`Shopper ${numericId} has updated`)
