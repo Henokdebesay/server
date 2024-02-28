@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const shoppersRoutes = require('./routes/shoppers.js')
 
 
-app.use(bodyParser.json());
+app.use(bodyParser.json())
 app.use("/shoppers", shoppersRoutes)
 
 app.listen(PORT, ()=>{
